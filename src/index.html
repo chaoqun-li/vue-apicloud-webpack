@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+  <title>vue-api-webpack</title>
+  <style>
+    [v-cloak]{
+      display: none;
+    }
+  </style>
+</head>
+
+<body onload="onload()">
+  <div id='root' v-cloak>
+  </div>
+  <script src="../static/js/fastclick.js" type='application/javascript'></script>
+  <script>
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function () {
+        FastClick.attach(document.body);
+      }, false);
+    }
+
+    function onload() {
+      var backDom = document.querySelector('.van-nav-bar__left .van-nav-bar__arrow');
+      if (backDom) {
+        backDom.addEventListener('click', function () {
+          closeWin();
+        })
+      }
+    }
+
+    /**
+     * 关闭窗口
+     */
+    function closeWin() {
+      if (window.api) {
+        api.closeWin();
+      } else {
+        history.go(-1);
+      }
+    }
+
+  </script>
+</body>
+
+</html>
